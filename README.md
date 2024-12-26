@@ -24,16 +24,17 @@ Input:
 •	--resource-type: set to ManagedInstance.
 •	--filters Key=ComplianceType,Values=Association: Filter the output to include  only compliance items related to associations.
 #### b. Which attributes in the CLI commands output are relevant for the evaluation?
-•	From `aws ec2 describe-instances`:
-InstanceIds : 
-A list of all EC2 instance IDs.
-•	From `aws ssm list-compliance-items`:
+• From `aws ec2 describe-instances`:
+	• **InstanceIds** : 
+	A list of all EC2 instance IDs.
+
+• From `aws ssm list-compliance-items`:
  An array of compliance items. Each item contains:
-•	ComplianceType:
-The value should be "Association" to confirm the compliance status is specific to associations.
-•	Status:
-Indicates whether the association is COMPLIANT or NON_COMPLIANT.
-This is the primary attribute for determining compliance with the recommendation.
+	• **ComplianceType**:
+	The value should be "Association" to confirm the compliance status is specific to associations.
+	• **Status**:
+	Indicates whether the association is COMPLIANT or NON_COMPLIANT.
+	This is the primary attribute for determining compliance with the recommendation.
 ### Question 3: Evaluation Logic
 Once the information is collected, we need to evaluate whether the resource is healthy or not. The following pseudo algorithm demonstrates how to check the compliance status of an EC2 instance:
 ```pseudo
