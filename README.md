@@ -36,7 +36,7 @@ Indicates whether the association is COMPLIANT or NON_COMPLIANT.
 This is the primary attribute for determining compliance with the recommendation.
 ### Question 3: Evaluation Logic
 Once the information is collected, we need to evaluate whether the resource is healthy or not. The following pseudo algorithm demonstrates how to check the compliance status of an EC2 instance:
-
+```pseudo
 function is_instance_healthy(instance_id):
 // Retrieve compliance item list using list-compliance-items command
 compliance_items = get_ compliance_items(instance_id) 
@@ -51,7 +51,7 @@ for each item in compliance_items.ComplianceItems:
 		if item.Status != "COMPLIANT": 
 			return false 
 // All associations are compliant, so the instance is healthy
-return true 
+return true
 
 ## Code Implementation
 The code implements a data collector that retrieves relevant data from AWS using the AWS SDK for .NET, evaluates the compliance status according to the [SSM.3] recommendation, and identifies unhealthy EC2 instances. The implementation emphasizes modularity and extensibility, using classes such as:
