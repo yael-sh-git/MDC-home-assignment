@@ -52,6 +52,7 @@ for each item in compliance_items.ComplianceItems:
 			return false 
 // All associations are compliant, so the instance is healthy
 return true
+```
 
 ## Code Implementation
 The code implements a data collector that retrieves relevant data from AWS using the AWS SDK for .NET, evaluates the compliance status according to the [SSM.3] recommendation, and identifies unhealthy EC2 instances. The implementation emphasizes modularity and extensibility, using classes such as:
